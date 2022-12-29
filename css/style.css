@@ -1,0 +1,531 @@
+*, *:before, *:after {
+    padding: 0;
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
+    outline: none !important;
+}
+
+html, body {
+    height: 100%;
+    min-height: 100vh;
+    color: #212529;
+}
+
+body{
+    font-family: 'PT Sans', sans-serif; 
+    background-color: #F6F6F6;
+}
+
+.content {
+    max-width: 1180px;
+    margin: 0 auto;
+    position: relative;
+}
+
+/* Ссылки */
+a {
+    outline: none;
+    text-decoration: none;
+}
+
+a:link {
+    color: orange;
+  }
+  
+a:visited {
+   color: orange;
+}
+  
+  a:hover {
+    color: orange;
+    font-weight: 600;
+  }
+  
+  a:active {
+    color: orange;
+  }
+/* --- */
+
+header {
+    width: 100%;
+    background-color: white;
+    position: relative;
+    z-index: 999;
+    box-shadow: 0 1px 2px rgb(0 0 0 / 10%);
+}
+.header-ad {
+  max-height: 50px;
+  width: 100%;
+}
+ .header-ad img {
+    object-fit: cover;
+    max-height: 50px;
+    width: 100%;
+ }
+
+ .header-row {
+    width: 100%;
+    padding: 0 0 20px 0;
+ }
+
+ .header-top {
+    width:100%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+ }
+
+ .header-top a{
+    margin: 0 20px;
+ }
+
+.header-bottom {
+    width:100%;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    
+}
+
+.header-bottom-left {
+   height: 100%;
+   position: relative;
+   display: flex;
+   justify-content: space-between;
+   background: linear-gradient(0deg,#fc8507,#ffa218);
+   align-items: center;
+   border-radius: 8px;
+   box-shadow: 0 6px 8px rgb(89 16 0 / 8%);
+}
+
+.header-logo {
+  width: 120px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+}
+
+.header-logo img{
+   width: 100%;
+   height: 100%;
+   display: flex;
+   align-items: center;
+   margin: 0 auto;
+  }
+
+  /* Dropdown */
+.header-dropdown {
+  
+   height: 100%;
+   border-radius: 0 8px 8px 0;
+ 
+}
+
+.header-dropdown:hover {
+  box-shadow: 0px 0px 12px 2px rgba(134, 135, 89, 0.2);
+
+ }
+ 
+
+.dropbtn {
+    border-radius: 0 8px 8px 0;
+    cursor: pointer;
+    width: 120px;
+    height: 100%;
+    font-size: 16px;  
+    border: none;
+    outline: none;
+    color: white;
+    background-color: inherit;
+    font-weight: 700;
+
+  }
+
+
+  
+  .dropdown-menu {
+    
+    display: none;
+    list-style-type: none;
+    margin-left: -120px;
+    background: #fff;
+    border-radius: 12px;
+    padding: 10px;
+    background: #fff;
+    border-radius: 12px;
+    border: 1px solid rgb(218, 218, 218);
+    box-shadow: 0 0 100vw 100vh rgb(0 0 0 / 10%);
+    text-align: left;
+}
+
+.dropdown-menu li {
+  margin: 10px 0;
+}
+
+.dropdown-menu li:last-child {
+  margin:  10px 0 0 0;
+}
+
+.menu-active {
+    display: block;
+}
+  /* --- */
+
+  .header-search {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    margin: 0 20px;
+  }
+
+  .header-search input {
+    border: 0;
+    width: 100%;
+    height: 100%;
+    padding: 0 15px;
+    font-size: 16px;
+    background: rgb(219, 219, 219);
+    border: 1px solid rgb(219, 219, 219);
+    border-radius: 8px  0px 0px 8px;
+
+  }
+
+  .header-search input:focus {
+    outline: none;
+  }
+
+  .header-search button {
+		border: none;
+		outline: none;
+		min-width: 60px;
+		font-size: 20px;
+		color: rgb(119, 119, 119);
+		background: rgb(219, 219, 219);
+		border-radius: 0  8px 8px 0;
+		cursor: pointer;
+  }
+
+  .header-account{
+    margin-left: 20px;
+  }	
+  .header-cart {
+  	  margin: 0 20px;	
+    
+  }
+
+  .header-cart, .header-account {
+		width: 60px;
+		height: 100%;
+		border-radius:8px;
+		display: flex;
+		align-items: center;
+		text-align: right;
+  }
+
+  .header-cart a, .header-account a {
+		display: flex;
+		margin: 0 auto;
+		flex-direction: column;
+		font-size: 35px;
+  }
+
+  .products-heading h1{ 
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  .products-heading h1 p{ 
+    margin-left: 10px;
+  }
+
+  .products {
+		display: grid;
+		gap: 15px;
+		grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 350px;
+		width: 100%;
+  }
+
+  .product-item {
+		position: relative;
+		width: 100%;
+		word-wrap: break-word;
+  }
+
+.product-item .product-name, .product-price {
+	padding: 0 10px;
+}
+.product-image img {
+	width: 100%;
+	height: auto;
+}
+
+
+.add-product {
+	position: absolute;
+    z-index: 50;
+    text-align: center;
+    width: 100%;
+    top: 40%;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.add-product a {
+	position: relative;
+	padding: 5px;
+    border: 2px solid rgb(255, 255, 255);
+    text-decoration: none;
+    color: #fff;
+    opacity: 0;
+}
+
+.product-item:hover {
+	border: 1px solid #dfdfdf;
+    box-shadow: 0px 0px 8px 2px rgba(34, 60, 80, 0.2);
+}
+.product-item:hover img{
+	opacity: .8;
+}
+
+.product-item:hover a{
+	opacity: 1;
+}
+
+.add-product-link::before {
+	background: rgb(250, 134, 2);
+	content: "";
+	inset: 0;
+	position: absolute;
+	transform: scaleX(0);
+	transform-origin: right;
+	transition: transform 0.3s ease-in-out;
+	z-index: -1;
+  }
+  
+  .add-product-link:hover::before {
+	transform: scaleX(1);
+	transform-origin: left;
+  }
+
+
+  /* Слайдер: */
+.slider{
+  max-width: 100%;
+  width: 100%;
+  /* Положение элемента устанавливается относительно его исходной позиции: */
+  position: relative;
+  /* Центрируем по горизонтали: */
+  margin: 0px auto 20px auto;
+  height: 550px;
+}
+
+/* Картинка масштабируется по отношению к родительскому элементу: */
+.slider .item img {
+  /* Элемент меняет размер так, чтобы заполнить блок и сохранить пропорции: */
+  object-fit: cover;
+  width: 100%;
+  height: 550px;
+}
+
+/* Кнопки назад и вперёд: */
+.slider .previous, .slider .next {
+  /* Добавляет курсору иконку, когда тот оказывается над кнопкой: */
+  cursor: pointer;
+  /* Положение элемента задаётся относительно границ браузера: */
+  position: absolute;
+  top: 47%;
+  width: auto;
+  
+  padding: 16px;
+  /* Оформление самих кнопок: */
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  /* Плавное появление фона при наведении курсора: */
+  transition: 0.6s ease;
+  /* Скругление границ: */
+  border-radius: 0 3px 3px 0;
+}
+.slider .next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* При наведении курсора на кнопки добавляем фон кнопок: */
+.slider .previous:hover,
+.slider .next:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+/* Анимация слайдов: */
+.slider .item {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+@keyframes fade {
+  /* Устанавливаем и изменяем степень прозрачности: */
+  from {
+      opacity: 0.4
+  }
+  to {
+      opacity: 1
+  }
+}
+
+
+/* Блоки категорий */
+
+.main-categories {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(5, 1fr);
+  grid-auto-rows: 200px;
+  width: 100%;
+}
+.block-categories {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  height: 100%;
+  width: 100%;
+  word-wrap: break-word;
+  align-items: center;
+}
+
+.main-categories a{
+  width: 100%;
+  height: 100%;
+  color: #212529;
+}
+
+.category {
+  width: 100%;
+  height: 100%;
+}
+.category:hover{
+  border: 1px solid #dfdfdf;
+  box-shadow: 0px 0px 8px 2px rgba(34, 60, 80, 0.2);
+}
+
+.category:hover a{
+  color: #fc8507;
+}
+
+.categories-img {
+  margin: auto;
+  width: 70%;
+  height: 70%;
+  background-color: #fc8507;
+}
+
+.categories-img img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.categories-name {
+  width: 100%;
+  height: 20%;
+  font-size: 18px;
+  font-weight: 700;
+  text-align: center;
+  
+}
+
+.footer {
+  background-color: #222;
+  color: #aaa;
+  padding-top: 50px;
+  z-index: 100;
+}
+
+.footer-content {
+  max-width: 1180px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.row {
+  display: grid;
+  gap: 15px;
+  grid-template-columns: repeat(4, 1fr);
+  width: 100%;
+}
+
+.footer-contacts, .footer-pages {
+  padding-left: 3px;
+}
+
+.footer-contacts {
+
+}
+
+.footer-pages {
+
+}
+
+.footer-title {
+  color: #eee;
+  margin-bottom: 14px;
+}
+
+.contacts-item {
+  display: flex;
+  margin-bottom: 14px;
+  align-items: baseline
+}
+
+.contact-text {
+  padding-left: 10px;
+  word-wrap: break-word;
+}
+.contact-text span {
+  color: #eee;
+  font-weight: 700;
+}
+
+.page-list {
+  list-style: none !important;
+}
+
+.page-list li {
+  margin-bottom: 14px;
+}
+
+.footer-subscription {
+  width: 100%;
+  margin-bottom: 26px;
+}
+
+.subscription-input {
+  border-radius: 8px;
+  border: 1px solid #eee;
+  color: #777;
+  display: block;
+  font-size: 16px;
+  padding: 12px;
+  width: 100%;
+  line-height: normal;
+  margin: 0;
+  height: 46px;
+}
+
+.footer-subscription div {
+  margin-bottom: 10px;
+}
+
+.footer-social-link {
+  display: flex;
+  font-size: 25px;
+  width: 100%;
+  justify-content: space-between;
+  cursor: pointer;
+}
