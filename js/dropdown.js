@@ -16,7 +16,7 @@ let intervalId;
 document.querySelectorAll('.dropbtn').forEach(e => {
     e.addEventListener('click', e => {
         const menu = e.currentTarget.dataset.path;
-        document.querySelectorAll('.dropdown-menu').forEach(e => {
+        document.querySelectorAll('.mydropdown-menu').forEach(e => {
             if (!document.querySelector(`[data-target=${menu}]`).classList.contains('open')) {
                 e.classList.remove('menu-active');
                 e.classList.remove('open');
