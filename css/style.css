@@ -13,6 +13,9 @@
     box-shadow: none!important;
  }
 
+ .btn-close:focus {
+    box-shadow: none!important;
+ }
 ol, ul {
     margin: 0;
     padding: 0;
@@ -86,12 +89,7 @@ header {
 }
 
 
-.phones {
-    font-size: 25px;
-
-}
 .phones a{
-    font-size: 16px;
     margin-right: 10px;
 }
 .social-link {
@@ -200,10 +198,11 @@ header {
 
 
 .mydropdown-menu {
-
+    position: absolute;
     display: none;
     list-style-type: none;
     margin-left: -120px;
+    width: 100%;
     background: #fff;
     border-radius: 12px;
     padding: 10px;
@@ -212,6 +211,7 @@ header {
     border: 1px solid rgb(218, 218, 218);
     box-shadow: 0 0 100vw 100vh rgb(0 0 0 / 10%);
     text-align: left;
+    z-index:100;
 }
 
 .mydropdown-menu li {
@@ -717,6 +717,95 @@ header {
    
 }
 
+.ul-with-mark{
+  list-style-type: disc;
+  list-style-position: inside;
+}
+
+.ul-without-mark{
+    list-style-type: none;
+  }
+
+.product-content {
+    width: 100%;
+    background-color: white;
+    padding: 15px;
+}
+
+.item-block {
+    display: flex;
+    width: 100%;
+}
+
+.item-pics {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+   
+}
+
+.item-main-pic {
+    width: 400px;
+    height: 400px; 
+    margin: 0 auto;
+    
+}
+
+.item-secondary-pics {
+    width: 400px;
+    margin: 15px auto 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.item-secondary-pics img {
+    width: 80px;
+    height: 80px;
+}
+.item-title {
+    width: 50%;
+    padding: 0 10px;
+}
+
+.articul {
+    font-size: 17px;
+    display: flex;
+}
+
+
+.availability-true:before{
+    color: green;
+    content: "Есть в наличии";
+}
+
+.availability-false:before {
+    color: red;
+    text-decoration: line-through;
+    content: "Нет в наличии";
+
+}
+
+.item-to-cart {
+    display: flex;
+    
+}
+.item-to-cart input {
+    margin-right: 10px;
+    padding-left: 28px;
+    width: 100px;
+    border-radius: 20px;
+    text-align: center;
+}
+.item-to-cart button {
+    width: 100px;
+    border-radius: 20px;
+}
+
+.item-bottom {
+    width: 100%;
+            
+}
+
 
 @media (max-width: 1280px) {}
 
@@ -724,6 +813,15 @@ header {
 
 @media (max-width: 868px) {
 
+
+    /* Блок товара */
+    .item-title {
+       width: 40%;
+       
+    }
+    .item-pics {
+        width: 60%;
+    }
     /* Мобильный хидер и футер */
     .mobile-header {
         width: 100%;
@@ -764,6 +862,24 @@ header {
 
 }
 
+/* 
+specially for product page */
+@media (max-width: 750px) {
+    .item-block {
+        flex-direction: column;
+    }
+
+    .item-title {
+        width: 100%;
+        margin: 10px 0;
+        padding: 0;
+        
+     }
+     .item-pics {
+         width: 100%;
+     }
+}
+/*  */
 @media (max-width: 598px) {
 
 
@@ -800,4 +916,13 @@ header {
     
 }
 
+/* 
+specially for product page */
+@media (max-width: 430px) {
+    .item-main-pic {
+        width: 350px;
+        height: 350px; 
+    }
+}
+/*  */
 @media (max-width: 323px) {}
