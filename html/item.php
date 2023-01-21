@@ -1,22 +1,42 @@
+<?php
+require('/ospanel/domains/shop2.ru/settings/settings.php');
+
+if (!$dbConnection) {
+    die("Ошибка подключения: " . pg_last_error());
+}
+
+$productName = $params['id'];
+
+
+$query = pg_query_params($dbConnection, 'SELECT * FROM products Where "ProductName" = $1', array($productName));
+if (!$query) {
+    die("Ошибка выполнения запроса");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Товар</title>
+    <title><? echo $params['id']; ?></title>
 
     <link rel="stylesheet" href="html/css/jquery.bxslider.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 
+
     <link rel="stylesheet" href="html/css/style.css">
- 
+
 
 
 </head>
+
 <body>
     <header>
         <div class="header-ad">
@@ -43,28 +63,28 @@
                 <!-- Модальное окно -->
                 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                        <h5 class="modal-title" id="staticBackdropLabel">Заказать звонок</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="staticBackdropLabel">Заказать звонок</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Закрыть"></button>
+                            </div>
+                            <div class="modal-body">
+                                <form>
+                                    <div class="mb-3">
+                                        <label for="inputName" class="form-label">Ваше имя</label>
+                                        <input type="text" class="form-control" id="inputName">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="inputPhone" class="form-label">Телефон</label>
+                                        <input type="text" class="form-control" id="inputPhone" value="+ 7 (949)">
+                                    </div>
+
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary">Отправить</button>
+                            </div>
                         </div>
-                        <div class="modal-body">
-                            <form>
-                                <div class="mb-3">
-                                  <label for="inputName" class="form-label">Ваше имя</label>
-                                  <input type="text" class="form-control" id="inputName">
-                                </div>
-                                <div class="mb-3">
-                                  <label for="inputPhone" class="form-label">Телефон</label>
-                                  <input type="text" class="form-control" id="inputPhone" value = "+ 7 (949)">
-                                </div>
-                             
-                              </form>
-                        </div>
-                        <div class="modal-footer">
-                        <button type="button" class="btn btn-primary">Отправить</button>
-                        </div>
-                    </div>
                     </div>
                 </div>
 
@@ -73,29 +93,29 @@
         <div class="content">
             <div class="header-row">
                 <div class="header-top">
-                    <a href="./index.html">Главная</a>
+                    <a href="html/index.html">Главная</a>
                     <a href="">Покупателям</a>
-                    <a href="./garantiya.html">Гарантии и возврат</a>
-                    <a href="./dostavka.html">Доставка и оплата</a>
+                    <a href="html/garantiya.html">Гарантии и возврат</a>
+                    <a href="html/dostavka.html">Доставка и оплата</a>
                 </div>
                 <div class="mobile-header">
-                    <img src="./img/logo.png" alt="">
+                    <img src="html/img/logo.png" alt="">
                 </div>
                 <div class="header-bottom">
                     <div class="header-bottom-left">
                         <div class="header-logo">
-                            <img src="./img/logo.png" alt="">
-                           
+                            <img src="html/img/logo.png" alt="">
+
                         </div>
                         <div class="header-dropdown">
                             <button data-path="one" class="dropbtn">
                                 Категории
-                              </button>
-                              <ul data-target="one" class="mydropdown-menu" aria-labelledby="dropdownMenuButton">
+                            </button>
+                            <ul data-target="one" class="mydropdown-menu" aria-labelledby="dropdownMenuButton">
                                 <li><a class="mydropdown-item" href="#">Action</a></li>
                                 <li><a class="mydropdown-item" href="#">Another action</a></li>
                                 <li><a class="mydropdown-item" href="#">Something else here</a></li>
-                              </ul>
+                            </ul>
                         </div>
                     </div>
                     <div class="header-search">
@@ -106,103 +126,124 @@
                     <div class="header-cart">
                         <a href="">
                             <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                         </a>
+                        </a>
                     </div>
                     <div class="header-account">
                         <a href="">
                             <i class="fa fa-user" aria-hidden="true"></i>
-                         </a>
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
-    
-    </header> 
+
+    </header>
 
     <div class="content product-content mt-3 mb-3 radius-content">
+        <?
+        $result = pg_fetch_array($query);
+        ?>
         <div class="item-block">
             <div class="item-pics">
-                <!-- <div class="item-main-pic">
-                    <img src="https://imgholder.ru/400x400/8493a8/adb9ca&text=400x400&font=kelson" alt="">
-                </div>
-                <div class="item-secondary-pics">
-                    <img src="https://imgholder.ru/400x400/8493a8/adb9ca&text=400x400&font=kelson" alt="">
-                    <img src="https://imgholder.ru/400x400/8493a8/adb9ca&text=400x400&font=kelson" alt="">
-                    <img src="https://imgholder.ru/400x400/8493a8/adb9ca&text=400x400&font=kelson" alt="">
-                    <img src="https://imgholder.ru/400x400/8493a8/adb9ca&text=400x400&font=kelson" alt="">
-                </div> -->
                 <div class="item-main-pic">
                     <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
                         <div class="carousel-indicators">
-                          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
+                            <?
+                            $arr = trim($result['ProductImages'], "{}");
+                            $imgs = explode(",",$arr);
 
+                            for ($i = 0; $i < count($imgs); $i++) {
+                                if ($i == 0) {?>
+
+                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="<?echo $i?>" class="active" aria-current="true" aria-label="Slide <?echo $i?>"></button>
+                                <?
+                                }
+                                else {?>
+                                <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="<?echo $i?>" aria-label="Slide <?echo $i?>"></button>
+                                <?}?>
+                            <? } ?>
                         </div>
+
                         <div class="carousel-inner">
-                          <div class="carousel-item active">
-                            <img src="https://imgholder.ru/400x400/8493a8/adb9ca&text=400x400&font=kelson" class="d-block w-100" alt="...">
-                          </div>
-                          <div class="carousel-item">
-                            <img src="https://imgholder.ru/400x400/8493a8/adb9ca&text=400x400&font=kelson" class="d-block w-100" alt="...">
-                          </div>
-                          <div class="carousel-item">
-                            <img src="https://imgholder.ru/400x400/8493a8/adb9ca&text=400x400&font=kelson" class="d-block w-100" alt="...">
-                          </div>
-                          <div class="carousel-item">
-                            <img src="https://imgholder.ru/400x400/8493a8/adb9ca&text=400x400&font=kelson" class="d-block w-100" alt="...">
-                          </div>
+                        <?
+                        $tmp = 0;
+                            foreach ($imgs as $img) {
+                                if ($tmp == 0) {
+                                ?>
+                                <div class="carousel-item active">
+                                    <img src="html/img/<?echo $img?>" class="d-block w-100" alt="<?echo $img?>">
+                                </div>
+                                <?$tmp = 1;}
+                                else {?>
+
+                                <div class="carousel-item">
+                                    <img src="html/img/<?echo $img?>" class="d-block w-100" alt="<?echo $img?>">
+                                </div>
+                                <?}?>
+                            <?}?>
                         </div>
+
                         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                          <span class="visually-hidden">Предыдущий</span>
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Предыдущий</span>
                         </button>
                         <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                          <span class="visually-hidden">Следующий</span>
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Следующий</span>
                         </button>
-                      </div>
+                    </div>
                 </div>
             </div>
             <div class="item-title">
-                <h3>Название товара</h3>
-                <h3><strong>9999 руб.</strong></h3>
-                <div class = "articul">
+                <h3><?echo $result['ProductName']?></h3>
+                <h3><strong><?echo $result['ProductPrice']?>&nbsp&#8381</strong></h3>
+                <div class="articul">
                     Артикул:&nbsp
-                    <div class="articul-num">#####</div>
+                    <div class="articul-num"><?echo $result['ProductID'] ?></div>
                 </div>
-                <div class="availability mt-2">
-                  <div class="availability-true"></div>
-                </div>
-                <form action="" class="item-to-cart mt-2">
-                    <input type="number" id="itemCounr" class="form-control" min="1" value="1">
+                    <?if ($result['ProductCount']>0){?>
+                    <div class="availability mt-2">
+                    <div class="availability-true">Есть в наличии</div>
+                    </div>
+                    <form action="" class="item-to-cart mt-2">
+                    <input type="number" id="itemCounr" class="form-control" min="1" value="1" max="<?echo $result['ProductCount']?>">
                     <button type="submit" class="btn btn-primary">В корзину</button>
-                </form>
+                    </form>
+                    <?}else {?>
+                    <div class="availability mt-2">
+                    <div class="availability-false">Нет в наличии</div>
+                    </div>
+                    <form action="" class="item-to-cart mt-2" >
+                    <input type="number" id="itemCounr" class="form-control" min="0" value="0" max="0">
+                    <button type="submit" class="btn btn-primary" disabled>В корзину</button>
+                    </form>
+                    <?}?>
+
+
             </div>
         </div>
         <div class="item-bottom mt-3">
             <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
                 <li class="nav-item" role="presentation">
-                  <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Описание</button>
+                    <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Описание</button>
                 </li>
                 <li class="nav-item" role="presentation">
-                  <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Характеристики</button>
+                    <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Характеристики</button>
                 </li>
                 <li class="nav-item" role="presentation">
-                  <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Отзывы</button>
+                    <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Отзывы</button>
                 </li>
-              </ul>
-              <div class="tab-content" id="pills-tabContent">
+            </ul>
+            <div class="tab-content" id="pills-tabContent">
                 <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">...</div>
                 <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">...</div>
                 <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">...</div>
-              </div>
+            </div>
         </div>
-        
+
     </div>
 
-  
+
     <div class="footer-block">
         <footer class="footer">
             <div class="content">
@@ -243,9 +284,9 @@
                                 <ul class="page-list">
                                     <li class="page-item">
                                         <a href="#">
-                                            Главная						</a>
+                                            Главная </a>
                                     </li>
-                                  
+
                                     <li class="page-item">
                                         <a href="#">
                                             Блог
@@ -253,19 +294,19 @@
                                     </li>
                                     <li class="page-item">
                                         <a href="#">
-                                            Каталог						</a>
+                                            Каталог </a>
                                     </li>
                                     <li class="page-item">
                                         <a href="#">
-                                            Кабинет						</a>
+                                            Кабинет </a>
                                     </li>
                                     <li class="page-item">
                                         <a href="#">
-                                            Корзина						</a>
+                                            Корзина </a>
                                     </li>
                                     <li class="page-item">
                                         <a href="#">
-                                            Обратная связь						</a>
+                                            Обратная связь </a>
                                     </li>
                                 </ul>
                             </div>
@@ -276,9 +317,9 @@
                                 <ul class="page-list">
                                     <li class="page-item">
                                         <a href="#">
-                                            Главная						</a>
+                                            Главная </a>
                                     </li>
-                                  
+
                                     <li class="page-item">
                                         <a href="#">
                                             Блог
@@ -286,19 +327,19 @@
                                     </li>
                                     <li class="page-item">
                                         <a href="#">
-                                            Каталог						</a>
+                                            Каталог </a>
                                     </li>
                                     <li class="page-item">
                                         <a href="#">
-                                            Кабинет						</a>
+                                            Кабинет </a>
                                     </li>
                                     <li class="page-item">
                                         <a href="#">
-                                            Корзина						</a>
+                                            Корзина </a>
                                     </li>
                                     <li class="page-item">
                                         <a href="#">
-                                            Обратная связь						</a>
+                                            Обратная связь </a>
                                     </li>
                                 </ul>
                             </div>
@@ -327,10 +368,10 @@
                     </div>
                 </div>
             </div>
-            
+
         </footer>
     </div>
-  
+
     <div class="bottom-navbar-mobile">
         <div class="navbar-row">
             <div class="navbar-col">
@@ -359,11 +400,15 @@
             </div>
         </div>
     </div>
-
+    <!-- Close DB -->
+    <?php
+    pg_close($dbConnection);
+    ?>
     <!-- JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 
     <script src="html/js/dropdown.js"></script>
-     <script src="html/js/carousel.js"></script>
+    <script src="html/js/carousel.js"></script>
 </body>
+
 </html>

@@ -4,7 +4,7 @@
             if (!$dbConnection) {
                 die("Ошибка подключения: " . pg_last_error());
             }
-            $query = pg_query($dbConnection, 'SELECT * FROM "public"."Products"');
+            $query = pg_query($dbConnection, "SELECT * FROM products");
             if (!$query) {
                 die("Ошибка выполнения запроса");
             }
@@ -252,10 +252,10 @@
             ?>
                 <div class="product-item" id="<? echo $result[0]; ?>">
                     <div class="product-image">
-                        <img src="./html/img/<? echo $result[5]; ?>" alt="<? echo $result[5] ?>">
+                        <img src="html/img/<? echo $result[5]; ?>" alt="<? echo $result[5] ?>">
                     </div>
                     <div class="product-price"><? echo $result[2] ?></div>
-                    <div class="product-name"><? echo $result[1] ?></div>
+                    <div class="product-name"><a href="/<? echo $result[1] ?>"><? echo $result[1] ?></a></div>
                     <div class="add-product">
                         <a href="#" class="add-product-link">В корзину
                         </a>
