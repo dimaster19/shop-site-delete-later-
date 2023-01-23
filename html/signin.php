@@ -1,4 +1,5 @@
 <?php
+session_start();
 require('/ospanel/domains/shop2.ru/settings/settings.php');
 
 if (!$dbConnection) {
@@ -16,8 +17,8 @@ include('html/header.php');
 
 
 <div class="content mt-3 mb-3 radius-content py-3 px-3">
-    <h1>Регистрация</h1>
-    <form class="row g-3 needs-validation" validate>
+    <h1>Авторизация</h1>
+    <form action="../controllers/SignInController.php" method="post"  class="row g-3 needs-validation" validate>
         <div class="col-md-6">
             <input type="email" name="email" aria-label="E-mail" placeholder="E-mail" required="" class="form-control">
         </div>
@@ -30,6 +31,20 @@ include('html/header.php');
             <a class="mx-2" href="">Зарегистрироваться</a>
         </div>
     </form>
+
+    <?if(isset($_SESSION['message'])) {
+        echo '<div class="mt-4" style="witdh:100%; font-size: 16px; text-align:center; color: green">'.$_SESSION['message'].' </div>';
+
+    }
+    unset($_SESSION['message']);
+
+    if(isset($_SESSION['message2'])) {
+        echo '<div class="mt-4" style="witdh:100%; font-size: 16px; text-align:center; color: red">'.$_SESSION['message2'].' </div>';
+
+    }
+    unset($_SESSION['message2']);
+    ?>
+
 </div>
 
 <!-- Close DB -->

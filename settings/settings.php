@@ -17,4 +17,16 @@ function getTitle($file_name) {
         return 'Контакты';
 
     }
+    elseif ($file_name == 'signup') {
+        return 'Регистрация';
+
+    }
+    elseif ($file_name == 'signin') {
+        return 'Авторизация';
+
+    }
+    elseif ($file_name == 'SignUpController.php') {
+        return 'Авторизация';
+
+    }
 }

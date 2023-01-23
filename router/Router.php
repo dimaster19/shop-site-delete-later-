@@ -19,7 +19,7 @@ class Route {
 
         if($reqUri == $route){
             $params = [];
-            include("html/".$file);
+            include($file);
             exit();
 
         }
@@ -103,14 +103,14 @@ class Route {
         //now matching route with regex
         if(preg_match("/$reqUri/", $route))
         {
-            include("html/".$file);
+            include($file);
             exit();
 
         }
     }
 
     function notFound($file){
-        include("html/".$file);
+        include($file);
         exit();
     }
 }
