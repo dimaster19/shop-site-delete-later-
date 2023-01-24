@@ -1,4 +1,10 @@
 <?php
+session_start();
+
+
+if (isset($_SESSION['user'])) {
+    header('Location: /profile');
+}
 require('/ospanel/domains/shop2.ru/settings/settings.php');
 
 if (!$dbConnection) {

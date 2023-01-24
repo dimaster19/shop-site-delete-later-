@@ -80,7 +80,7 @@
         <div class="content">
             <div class="header-row">
                 <div class="header-top">
-                    <a href="./index.html">Главная</a>
+                    <a href="/">Главная</a>
                     <a href="">Покупателям</a>
                     <a href="./garantiya.html">Гарантии и возврат</a>
                     <a href="./dostavka.html">Доставка и оплата</a>
@@ -116,7 +116,7 @@
                         </a>
                     </div>
                     <div class="header-account">
-                        <a href="">
+                        <a href="/profile">
                             <i class="fa fa-user" aria-hidden="true"></i>
                         </a>
                     </div>

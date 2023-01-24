@@ -1,7 +1,12 @@
 <?php
 session_start();
-require('/ospanel/domains/shop2.ru/settings/settings.php');
 
+
+if (isset($_SESSION['user'])) {
+    header('Location: /profile');
+}
+
+require('/ospanel/domains/shop2.ru/settings/settings.php');
 if (!$dbConnection) {
     die("Ошибка подключения: " . pg_last_error());
 }
@@ -24,7 +29,6 @@ include('html/header.php');
         </div>
         <div class="col-md-6">
             <input type="password" aria-label="Пароль" placeholder="Пароль" name="pass" required="" class="form-control">
-
         </div>
         <div class="col-12 d-flex" style="align-items: center;">
             <button class="btn btn-primary" type="submit">Войти</button>

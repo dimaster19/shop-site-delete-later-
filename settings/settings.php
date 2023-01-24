@@ -29,4 +29,8 @@ function getTitle($file_name) {
         return 'Авторизация';
 
     }
+    elseif ($file_name == 'profile') {
+        return 'Аккаунт';
+
+    }
 }

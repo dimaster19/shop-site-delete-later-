@@ -3,3 +3,6 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.+)$ index.php?uri=$1 [QSA,L]
 AddDefaultCharset UTF-8
+
+php_value session.gc_maxlifetime 600
+php_value session.cookie_lifetime 600
